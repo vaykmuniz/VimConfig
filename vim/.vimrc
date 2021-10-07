@@ -15,6 +15,7 @@ set encoding=UTF-8
 set tabstop=2
 set shiftwidth=2
 set expandtab
+set hlsearch
 
 set splitright
 set splitbelow
@@ -53,15 +54,14 @@ nnoremap <leader>ev :vsplit ~/.config/nvim/init.vim<cr>
 nnoremap <leader>eb :vsplit ~/.config/vim/.vimrc<CR>
 
 nnoremap <C-s> :w<CR>
-nnoremap <C-S-q> :q<CR>
+nnoremap <C-q> :q<CR>
 
-nmap <C-S-l> :botright vnew<CR>
-nmap <C-S-h> :botleft vnew<CR>
+nmap <C-l> :vnew<CR>
 
 "Tab"
 
 nnoremap <S-Tab> :wincmd h<CR>
-nnoremap <Tab> :wincmd l<CR>
+nnoremap <C-Tab> :wincmd l<CR>
 
 "nerd tree 
 
