@@ -14,7 +14,8 @@ call plug#begin()
  Plug 'neoclide/coc.nvim', {'branch': 'release'}
  Plug 'jiangmiao/auto-pairs'
  Plug 'airblade/vim-gitgutter'
-"Plug 'rinx/nvim-minimap'
+ 
+ Plug 'ryanoasis/nerd-fonts'
  Plug 'severin-lemaignan/vim-minimap' 
  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
  Plug 'ryanoasis/vim-devicons'
@@ -29,7 +30,7 @@ call plug#begin()
 
 call plug#end()
 
-" tema night ou storm "
+"TEMA
 
 let g:blamer_enabled = 1
 
@@ -39,10 +40,7 @@ endif
 
 colorscheme tender
 
-"let g:tokyonight_style = 'storm' " available: night, storm
-"let g:tokyonight_enable_italic = 1
-
-
+"AutoClose if nerdtree last tab
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 
@@ -63,3 +61,7 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
+
+"
+
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
