@@ -1,7 +1,5 @@
 source ~/.config/vim/.vimrc
 
-syntax enable
-
 call plug#begin()
 
 "Tela inicial para vim
@@ -23,21 +21,28 @@ call plug#begin()
 "Treesitter lindão 
  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
  Plug 'APZelos/blamer.nvim'
-"Tema tender
- Plug 'jacoborus/tender.vim'
 "Barrinha inferior
  Plug 'vim-airline/vim-airline'
 "AutoPair
  Plug 'jiangmiao/auto-pairs'
+"Tema
+" Plug 'jacoborus/tender.vim'
+ Plug 'morhetz/gruvbox'
 
 call plug#end()
 
 "TEMA
 let g:blamer_enabled = 1
+
 if (has('termguicolors'))
-        set termguicolors
+  set termguicolors
 endif
-colorscheme tender
+
+syntax enable
+colorscheme gruvbox
+
+let g:gruvbox_italic=1
+
 
 ""NERDTREESITTER"
 lua <<EOF

@@ -70,6 +70,3 @@ nnoremap <C-g> <cmd>Telescope file_browser<cr>
 
 "LSP
 
-nnoremap <silent> K :Lspsaga hover_doc<CR>
-inoremap <silent> <C-k> <Cmd>Lspsaga signature_help<CR>
-nnoremap <silent> gh <Cmd>Lspsaga lsp_finder<CR>
