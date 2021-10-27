@@ -4,47 +4,56 @@ syntax enable
 
 call plug#begin()
 
-" Plug 'neovim/nvim-lspconfig'
- Plug 'ghifarit53/tokyonight-vim'
- Plug 'SirVer/ultisnips'
- Plug 'honza/vim-snippets'
- Plug 'scrooloose/nerdtree'
-" Plug 'preservim/nerdcommenter'
+"Tela inicial para vim
  Plug 'mhinz/vim-startify'
+"Ajuda no autocmplt
  Plug 'neoclide/coc.nvim', {'branch': 'release'}
- Plug 'jiangmiao/auto-pairs'
+"LSP
+ Plug 'neovim/nvim-lspconfig'
+ Plug 'glepnir/lspsaga.nvim'
+ Plug 'kabouzeid/nvim-lspinstall' 
+"Telescope
+ Plug 'nvim-lua/plenary.nvim'
+ Plug 'nvim-lua/popup.nvim'
+ Plug 'nvim-telescope/telescope.nvim'
+"Tipo gitlens
  Plug 'airblade/vim-gitgutter'
- "Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
- "Plug 'ryanoasis/vim-devicons'
+"Highlight texto e outras chamadas
+ Plug 'rrethy/vim-illuminate'
+"Treesitter lindão 
+ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
  Plug 'APZelos/blamer.nvim'
- Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
- Plug 'wfxr/minimap.vim'
-
-"Plug 'sheerun/vim-polyglohht
-"Plug 'dracula/vim'
-"Plug 'psliwka/vim-smoothie'
+"Tema tender
+ Plug 'jacoborus/tender.vim'
+"Barrinha inferior
+ Plug 'vim-airline/vim-airline'
+"AutoPair
+ Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
-" tema night ou storm "
-
+"TEMA
+let g:blamer_enabled = 1
 if (has('termguicolors'))
         set termguicolors
 endif
+colorscheme tender
 
-let g:tokyonight_style = 'night' " available: night, storm
-let g:tokyonight_enable_italic = 1
+""NERDTREESITTER"
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { "c", "rust" },  -- list of language that will be disabled
+    additional_vim_regex_highlighting = false,
+  },
+}
+EOF
 
-colorscheme tokyonight
+"LSP 
 
-
-"NerdTree autoclose
-
-autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-
-
-"Config minimap
-
-let g:minimap_width = 10
-let g:minimap_auto_start = 1
-let g:minimap_auto_start_win_enter = 1
+lua <<EOF
+  local saga = require'lspsaga'
+  saga.init_lsp_saga()
+EOF

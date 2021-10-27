@@ -15,11 +15,10 @@ set encoding=UTF-8
 set tabstop=2
 set shiftwidth=2
 set expandtab
+set hlsearch
 
 set splitright
 set splitbelow
-
-"Status-Line
 
 function! GitBranch()
   return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
@@ -55,21 +54,22 @@ nnoremap <leader>ev :vsplit ~/.config/nvim/init.vim<cr>
 nnoremap <leader>eb :vsplit ~/.config/vim/.vimrc<CR>
 
 nnoremap <C-s> :w<CR>
-nnoremap <C-S-q> :q<CR>
+nnoremap <C-q> :q<CR>
 
-nmap <C-S-l> :botright vnew<CR>
-nmap <C-S-h> :botleft vnew<CR>
+nmap <C-l> :vnew<CR>
 
 "Tab"
 
-nnoremap <S-Tab> :wincmd h<CR>
-nnoremap <Tab> :wincmd l<CR>
+nnoremap <silent> <A-Left> :wincmd h<CR>
+nnoremap <silent> <A-Right> :wincmd l<CR>
 
-"nerd tree 
+"Telescope 
 
-nnoremap <S-t> :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
+nnoremap <C-f> <cmd>Telescope find_files<cr>
+nnoremap <C-g> <cmd>Telescope file_browser<cr>
 
-"
+"LSP
+
+nnoremap <silent> K :Lspsaga hover_doc<CR>
+inoremap <silent> <C-k> <Cmd>Lspsaga signature_help<CR>
+nnoremap <silent> gh <Cmd>Lspsaga lsp_finder<CR>
