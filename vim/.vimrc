@@ -45,13 +45,12 @@ set statusline+=\ %p%%
 set statusline+=\ %l:%c
 
 
-let mapleader="\<space>"
 
 "Hotkeys
 
-nnoremap <leader>; A;<esc>
-nnoremap <leader>ev :vsplit ~/.config/nvim/init.vim<cr>
-nnoremap <leader>eb :vsplit ~/.config/vim/.vimrc<CR>
+nnoremap <space>; A;<esc>
+nnoremap <space>ev :vsplit ~/.config/nvim/init.vim<cr>
+nnoremap <space>eb :vsplit ~/.config/vim/.vimrc<CR>
 
 nnoremap <C-s> :w<CR>
 nnoremap <C-q> :q<CR>
@@ -68,5 +67,5 @@ nnoremap <silent> <A-Right> :wincmd l<CR>
 nnoremap <C-f> <cmd>Telescope find_files<cr>
 nnoremap <C-g> <cmd>Telescope file_browser<cr>
 
-"LSP
-
+"Prettier
+nnoremap <space>p :Prettier<CR>
